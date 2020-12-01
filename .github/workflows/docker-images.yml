@@ -4,6 +4,10 @@ on:
     branches:
       - main
       - dev/*
+  schedule:
+    # build a new version of the image every week on Sunday morning UTC
+    # so that we get Alpine updates.
+    - cron: '30 0 * * 0'
 env:
   IMAGE: ghcr.io/${{ github.repository }}
 jobs:
